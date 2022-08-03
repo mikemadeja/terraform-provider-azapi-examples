@@ -20,7 +20,7 @@ To build this example, you must have access to an Azure subscription
 - az login
 - terraform init
 - terraform plan
-- terraform appy -auto-approve 
+- terraform apply -auto-approve 
 
 Once deployed, go to the application insights that was deployed, then click Availability, you will see the webtests that were built.
 
