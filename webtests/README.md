@@ -12,7 +12,7 @@ This is a self sustaining example of how to utlize the azapi terraform provider 
 This example will tie in azapi with the regular azurerm components.
 Webtests are built and exist within an Application Insights instance via a hidden-link tag. We then create a monitor metric alert to alert when a site is down and then send it to an action group. 
 
-The current azurerm provider as of 7/12/2022 only allows the old method of XML when building webtests and can't do SSL monitoring, this is where azapi comes in. (https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_insights_web_test)
+The current azurerm provider as of 7/12/2022 only allows the old method of XML when building webtests and can't do SSL monitoring, this is where azapi comes in. (https://registry.terraform.io/providers/hashicorp/azurerm/3.0.0/docs/resources/application_insights_web_test)
 
 # Getting Started
 To build this example, you must have access to an Azure subscription

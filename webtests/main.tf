@@ -38,7 +38,7 @@ locals {
   ]
 
   webtests = {
-    "_3cloud.com - SSL" = {
+    "_yahoo.com - SSL" = {
       enabled                           = true
       frequency                         = 900
       timeout                           = 120
