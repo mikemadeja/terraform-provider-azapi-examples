@@ -3,11 +3,11 @@
 
 # Introduction 
 This is a self sustaining example of how to utlize the azapi terraform provider to utilize Azure resources that do not exist in the current azurerm provider. It will build the following objects.
+- **azapi_resource - Microsoft.Insights/webtests@2018-05-01-preview**
 - azurerm_resource_group
 - azurerm_application_insights
 - azurerm_monitor_action_group
 - azurerm_monitor_metric_alert
-- **azapi_resource - Microsoft.Insights/webtests@2018-05-01-preview**
 
 This example will tie in azapi with the regular azurerm components.
 Webtests are built and exist within an Application Insights instance via a hidden-link tag. We then create a monitor metric alert to alert when a site is down and then send it to an action group. 
