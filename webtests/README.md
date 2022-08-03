@@ -16,7 +16,7 @@ The current azurerm provider as of 7/12/2022 only allows the old method of XML w
 
 # Getting Started
 To build this example, you must have access to an Azure subscription
-- cd in azapi-examples\webtests
+- cd in terraform-provider-azapi-examples\webtests
 - az login
 - terraform init
 - terraform plan
@@ -25,6 +25,6 @@ To build this example, you must have access to an Azure subscription
 Once deployed, go to the application insights that was deployed, then click Availability, you will see the webtests that were built.
 
 To destroy this in your environment if you built it before.
-- cd in azapi-examples\webtests
+- cd in terraform-provider-azapi-examples\webtests
 - az login
 - terraform destroy -auto-approve
