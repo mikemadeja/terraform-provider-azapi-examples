@@ -22,6 +22,6 @@ To build this example, you must have access to an Azure subscription
 Once deployed, go to the Autotuning within the SQL database and you will see the updated values
 
 To destroy this in your environment if you built it before.
-- cd in terraform-provider-azapi-examples\webtests
+- cd in terraform-provider-azapi-examples\mssql-database-autotuning
 - az login
 - terraform destroy -auto-approve
