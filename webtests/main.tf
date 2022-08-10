@@ -1,3 +1,6 @@
+# Author(s)
+# Mike Madeja (https://github.com/mikemadeja/terraform-provider-azapi-examples)
+
 terraform {
   required_providers {
     azurerm = {
