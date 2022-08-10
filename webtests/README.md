@@ -1,5 +1,5 @@
 ## Author(s)
-- Mike Madeja
+- Mike Madeja (https://github.com/mikemadeja/terraform-provider-azapi-examples)
 
 # Introduction 
 This is a self sustaining example of how to utlize the azapi terraform provider to utilize Azure resources that do not exist in the current azurerm provider. It will build the following objects.

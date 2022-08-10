@@ -1,0 +1,11 @@
+_Ignore/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .local.hcl files
+*.lock.hcl
+
+# .exe files
+*.exe
