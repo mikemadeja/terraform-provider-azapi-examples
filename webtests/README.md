@@ -3,7 +3,7 @@
 
 # Introduction 
 This is a self sustaining example of how to utlize the azapi terraform provider to utilize Azure resources that do not exist in the current azurerm provider. It will build the following objects.
-- **azapi_resource - Microsoft.Insights/webtests@2018-05-01-preview**
+- **azapi_resource - Microsoft.Insights/webtests@2018-05-01-preview** (https://docs.microsoft.com/en-us/rest/api/application-insights/web-tests/create-or-update?tabs=HTTP)
 - azurerm_resource_group
 - azurerm_application_insights
 - azurerm_monitor_action_group
