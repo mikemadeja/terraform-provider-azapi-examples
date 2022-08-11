@@ -23,18 +23,7 @@ provider "azurerm" {
 }
 
 locals {
-  location            = "central us"
-  autotuning = {
-    ForceLastGoodPlan = {
-      autoExecuteValue = "Enabled"
-    }
-    CreateIndex = {
-      autoExecuteValue = "Enabled"
-    }
-    DropIndex = {
-      autoExecuteValue = "Disabled"
-    }
-  }
+  location = "central us"
   sqldbs = {
     db01 = {
       max_size_gb = 2
@@ -53,17 +42,44 @@ resource "random_string" "example" {
 resource "random_uuid" "random_uuid" {}
 data "azurerm_subscription" "current" {}
 
-resource "azapi_update_resource" "mssql_database_autotuning" {
-  for_each    = local.autotuning
-  type        = "Microsoft.Sql/servers/advisors@2021-02-01-preview"
-  resource_id = "${azurerm_mssql_server.example.id}/advisors/${each.key}"
+resource "azapi_update_resource" "mssql_database_autotuning_create_index" {
+  type        = "Microsoft.Sql/servers/advisors@2014-04-01"
+  resource_id = "${azurerm_mssql_server.example.id}/advisors/CreateIndex"
   body = jsonencode({
     properties : {
-      autoExecuteValue : each.value.autoExecuteValue
+      autoExecuteValue : "Enabled"
     }
   })
   depends_on = [
     azurerm_mssql_server.example, azurerm_mssql_database.example
+  ]
+}
+
+resource "azapi_update_resource" "mssql_database_autotuning_force_last_good_plan" {
+  type        = "Microsoft.Sql/servers/advisors@2014-04-01"
+  resource_id = "${azurerm_mssql_server.example.id}/advisors/ForceLastGoodPlan"
+  body = jsonencode({
+    properties : {
+      autoExecuteValue : "Enabled"
+    }
+  })
+  depends_on = [
+    azurerm_mssql_server.example, azurerm_mssql_database.example,
+    azapi_update_resource.mssql_database_autotuning_create_index
+  ]
+}
+
+resource "azapi_update_resource" "mssql_database_autotuning_drop_index" {
+  type        = "Microsoft.Sql/servers/advisors@2014-04-01"
+  resource_id = "${azurerm_mssql_server.example.id}/advisors/DropIndex"
+  body = jsonencode({
+    properties : {
+      autoExecuteValue : "Disabled"
+    }
+  })
+  depends_on = [
+    azurerm_mssql_server.example, azurerm_mssql_database.example,
+    azapi_update_resource.mssql_database_autotuning_force_last_good_plan
   ]
 }
 
