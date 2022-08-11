@@ -3,7 +3,7 @@
 
 # Introduction 
 This is a self sustaining example of how to utlize the azapi terraform provider to utilize Azure resources that do not exist in the current azurerm provider. It will update and build the following objects.
-- **Microsoft.Sql/servers/databases/advisors@2022-02-01-preview** (https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/2022-02-01-preview/servers/databases/advisors)
+- **Microsoft.Sql/servers/databases/advisors@2014-04-01** (https://docs.microsoft.com/en-us/rest/api/sql/2021-02-01-preview/database-advisors/update?tabs=HTTP) For some reason documentation for 2014-04-01 doesn't exist...
 - azurerm_resource_group
 - azurerm_mssql_server
 - azurerm_mssql_database
