@@ -55,6 +55,7 @@ resource "azapi_update_resource" "mssql_database_autotuning_create_index" {
   ]
 }
 
+# The API must have a limitation, I can't do a for_each loop so each Advisor piece has to be called out.
 resource "azapi_update_resource" "mssql_database_autotuning_force_last_good_plan" {
   type        = "Microsoft.Sql/servers/advisors@2014-04-01"
   resource_id = "${azurerm_mssql_server.example.id}/advisors/ForceLastGoodPlan"
