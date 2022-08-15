@@ -5,7 +5,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=3.00.0"
+      version = "=3.15.0"
     }
     azapi = {
       source  = "Azure/azapi"
@@ -24,16 +24,15 @@ provider "azurerm" {
 
 locals {
   location            = "central us"
-  mssql_database_name = "autotuning_db"
   autotuning = {
     ForceLastGoodPlan = {
       autoExecuteValue = "Enabled"
     }
     CreateIndex = {
-      autoExecuteValue = "Disabled"
+      autoExecuteValue = "Enabled"
     }
     DropIndex = {
-      autoExecuteValue = "Disabled"
+      autoExecuteValue = "Enabled"
     }
   }
 }
@@ -80,10 +79,15 @@ resource "azurerm_mssql_database" "example" {
   read_scale     = false
   sku_name       = "S0"
   zone_redundant = false
+
+  lifecycle {
+    ignore_changes = [
+      license_type
+    ]
+  }
 }
 
 resource "azurerm_resource_group" "example" {
   name     = "rg_${random_string.example.result}"
   location = local.location
 }
-
