@@ -32,7 +32,7 @@ locals {
       autoExecuteValue = "Enabled"
     }
     DropIndex = {
-      autoExecuteValue = "Enabled"
+      autoExecuteValue = "Disabled"
     }
   }
 }
